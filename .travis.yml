@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "7"
+  - "6"
+  - "5"
+
+cache: yarn
+
+script:
+  - npm run test
+  # TODO(coverage)
+
+after_success:
+  - curl -X POST $DEPLOY_URL
