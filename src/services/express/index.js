@@ -1,11 +1,11 @@
-import express from 'express'
-import cors from 'cors'
-import compression from 'compression'
-import morgan from 'morgan'
-import bodyParser from 'body-parser'
-import { errorHandler as queryErrorHandler } from 'querymen'
-import { errorHandler as bodyErrorHandler } from 'bodymen'
-import config from '../../config'
+import express from 'express';
+import cors from 'cors';
+import compression from 'compression';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import { errorHandler as queryErrorHandler } from 'querymen';
+import { errorHandler as bodyErrorHandler } from 'bodymen';
+import config from '../../config';
 
 export default (routes) => {
   const app = express();
@@ -23,5 +23,5 @@ export default (routes) => {
   app.use(queryErrorHandler());
   app.use(bodyErrorHandler());
 
-  return app
+  return app;
 }
