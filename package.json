@@ -8,7 +8,7 @@
     "test": "ava",
     "test:unit": "npm test \"src/**/!(index).test.js\"",
     "test:integration": "npm test \"src/**/index.test.js\"",
-    "test:watch": "npm test -- watch",
+    "test:watch": "npm test -- -watch",
     "coverage": "TODO",
     "postcoverage": "opn coverage/lcov-report/index.html",
     "dev": "nodemon -i \"*.test.js\" .",
@@ -18,14 +18,15 @@
   },
   "ava": {
     "files": [
-      "test/setup.js",
       "src/**/*.test.js"
     ],
     "concurrency": 5,
     "failFast": true,
     "failWithoutAssertions": false,
     "verbose": true,
-    "require": ["babel-core/register"],
+    "require": [
+      "babel-register"
+    ],
     "babel": "inherit"
   },
   "devDependencies": {
