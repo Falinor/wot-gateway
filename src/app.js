@@ -1,8 +1,9 @@
 import http from 'http'
-import config from './config'
 // import mongoose from './services/mongoose'
-import express from './services/express'
+
 import api from './api'
+import config from './config'
+import express from './services/express'
 
 const app = express(api);
 const server = http.createServer(app);

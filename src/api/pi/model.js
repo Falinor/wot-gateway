@@ -8,18 +8,22 @@ class Pi {
   constructor(path = PATH) {
     try {
       const data = fs.readFileSync(path, 'utf8');
-      this.model = JSON.parse(data);
+      this._model = JSON.parse(data);
     } catch (e) {
       console.log(`Error while parsing ${path}`);
     }
   }
 
   async actions() {
-    return this.model.links.actions;
+    return this._model.links.actions;
   }
 
   async properties() {
-    return this.model.links.properties;
+    return this._model.links.properties;
+  }
+
+  async model() {
+    return this._model;
   }
 
 }
