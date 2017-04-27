@@ -4,12 +4,10 @@ import pi from './model';
 
 test('Pi', t => {
   t.truthy(pi);
-  t.truthy(pi.model);
-  t.is(typeof pi.model, 'object');
 });
 
-test('Pi.model', t => {
-  const model = pi.model;
+test('Pi.model', async t => {
+  const model = await pi.model();
   t.truthy(model);
   t.is(typeof model, 'object');
 });
