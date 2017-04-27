@@ -39,6 +39,7 @@
     "dotenv-safe": "^4.0.3",
     "eslint": "^3.3.1",
     "eslint-config-standard": "^6.0.0",
+    "eslint-plugin-ava": "^4.2.0",
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-standard": "^2.0.0",
     "mockgoose": "^6.0.8",
