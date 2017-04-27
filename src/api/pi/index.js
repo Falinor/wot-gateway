@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import pi from './pi';
+import { show } from './controller';
 
 const router = new Router();
 
-router.get('/pi', pi);
+router.get('/', show);
 
 export default router;
