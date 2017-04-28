@@ -4,8 +4,8 @@
   "main": "src",
   "private": true,
   "scripts": {
-    "start": "npm run dev",
-    "test": "ava",
+    "start": "node .",
+    "test": "export NODE_ENV=test && ava",
     "test:unit": "npm test \"src/**/!(index).test.js\"",
     "test:integration": "npm test \"src/**/index.test.js\"",
     "test:watch": "npm test -- -watch",
