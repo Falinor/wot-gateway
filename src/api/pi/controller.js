@@ -1,3 +1,5 @@
+import { mapValues, pick, values } from 'lodash';
+
 import pi from './model';
 
 export const show = async (req, res, next) => {
@@ -7,5 +9,10 @@ export const show = async (req, res, next) => {
 
 export const showProperties = async (req, res, next) => {
   const props = await pi.properties();
-  // TODO
+  const fields = ['name', 'description', 'values'];
+  const obj = mapValues(props.resources, (val, key) => {
+    const extracted = pick(val, fields);
+    return Object.assign({ id: key }, extracted);
+  });
+  res.status(200).json(values(obj));
 };
