@@ -6,8 +6,6 @@ import express from '../../services/express';
 
 let app;
 
-// TODO: wonder why the test does not end
-
 test.beforeEach('Set up supertest', async () => {
   app = express(routes);
 });
@@ -38,4 +36,26 @@ test('GET /properties - 200 OK', async t => {
   t.truthy(res.body);
   const body = res.body;
   t.true(Array.isArray(body));
+});
+
+test('GET /properties/:id - 200 OK', async t => {
+  const res = await request(app)
+    .get('/properties/temperature')
+    .set('Accept', 'application/json');
+
+  t.is(res.status, 200);
+  const body = res.body;
+  t.true(Array.isArray(body));
+  t.true(body.length > 0);
+  t.is(typeof body[0], 'object');
+  t.is(typeof body[0].t, 'number');
+  t.is(typeof body[0].timestamp, 'string');
+});
+
+test('GET /properties/:id - 404 Not found', async t => {
+  const res = await request(app)
+    .get('/properties/pression')
+    .set('Accept', 'application/json');
+
+  t.is(res.status, 404);
 });
