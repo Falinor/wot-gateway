@@ -16,3 +16,13 @@ export const showProperties = async (req, res, next) => {
   });
   res.status(200).json(values(obj));
 };
+
+export const showProperty = async (req, res, next) => {
+  const props = await pi.properties();
+  try {
+    const values = props.resources[req.params.id].data;
+    res.status(200).json(values);
+  } catch (err) {
+    res.status(404).end();
+  }
+};
