@@ -14,7 +14,9 @@
     "dev": "nodemon -i \"*.test.js\" .",
     "lint": "eslint src",
     "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o docs.md",
-    "postdocs": "opn docs/index.html"
+    "postdocs": "opn docs/index.html",
+    "prod": "pm2 start . -i 3",
+    "prod:docker": "pm2-docker start . -i 3"
   },
   "ava": {
     "files": [
@@ -67,6 +69,7 @@
     "mongoose-create-unique": "^0.4.1",
     "mongoose-keywords": "^0.3.1",
     "morgan": "^1.7.0",
+    "pm2": "^2.4.6",
     "querymen": "^2.0.0",
     "request": "^2.74.0",
     "request-promise": "^4.1.1"
